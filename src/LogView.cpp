@@ -76,12 +76,14 @@ int main(int argc, char * argv[])
         
         char key = cv::waitKey(1);
         
-        if(key == 'q')
+        if(key == 'q') {
             break;
-        else if(key == ' ')
+        } else if(key == ' ') {
             key = cv::waitKey(0);
-            if(key == 'q')
+            if(key == 'q') {
                 break;
+            }
+        }
     }
 
     delete [] decompressionBuffer;
