@@ -1,6 +1,7 @@
 #include "Resolution.h"
 #include "RawLogReader.h"
 #include <fstream>
+#include <opencv2/imgproc/types_c.h>
 
 int find_argument(int argc, char** argv, const char* argument_name)
 {

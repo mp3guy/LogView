@@ -6,6 +6,7 @@
  */
 
 #include "RawLogReader.h"
+#include <opencv2/imgproc/types_c.h>
 
 RawLogReader::RawLogReader(Bytef *& decompressionBuffer,
                            IplImage *& deCompImage,
