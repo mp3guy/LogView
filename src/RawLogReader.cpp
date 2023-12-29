@@ -57,7 +57,7 @@ void RawLogReader::getNext()
         cvReleaseImage(&deCompImage);
     }
 
-    CvMat tempMat = cvMat(1, imageSize, CV_8UC1, (void *)imageReadBuffer);
+    cv::Mat tempMat = cv::Mat(1, imageSize, CV_8UC1, (void *)imageReadBuffer);
 
     if(imageSize == Resolution::getInstance().numPixels() * 3)
     {
@@ -71,7 +71,9 @@ void RawLogReader::getNext()
     {
         isCompressed = true;
 
-        deCompImage = cvDecodeImage(&tempMat);
+        deCompImage2 = cv::imdecode(tempMat, cv::IMREAD_UNCHANGED);
+        deCompImage = cvCreateImage(cvSize(Resolution::getInstance().width(), Resolution::getInstance().height()), IPL_DEPTH_8U, 3);
+        memcpy(deCompImage->imageData, deCompImage2.data, deCompImage->imageSize);
     }
     else
     {

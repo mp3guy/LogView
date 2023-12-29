@@ -36,6 +36,7 @@ class RawLogReader
 
         Bytef *& decompressionBuffer;
         IplImage *& deCompImage;
+        cv::Mat deCompImage2;
         unsigned char * depthReadBuffer;
         unsigned char * imageReadBuffer;
         int64_t timestamp;
