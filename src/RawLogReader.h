@@ -12,6 +12,8 @@
 #include "Resolution.h"
 #include <zlib.h>
 #include <opencv2/opencv.hpp>
+#include <opencv2/core/types_c.h>
+#include <opencv2/core/core_c.h>
 #include <stdio.h>
 #include <string>
 #include <boost/filesystem.hpp>
@@ -34,6 +36,7 @@ class RawLogReader
 
         Bytef *& decompressionBuffer;
         IplImage *& deCompImage;
+        cv::Mat deCompImage2;
         unsigned char * depthReadBuffer;
         unsigned char * imageReadBuffer;
         int64_t timestamp;

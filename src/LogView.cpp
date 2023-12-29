@@ -1,6 +1,7 @@
 #include "Resolution.h"
 #include "RawLogReader.h"
 #include <fstream>
+#include <opencv2/imgproc/types_c.h>
 
 int find_argument(int argc, char** argv, const char* argument_name)
 {
@@ -76,12 +77,14 @@ int main(int argc, char * argv[])
         
         char key = cv::waitKey(1);
         
-        if(key == 'q')
+        if(key == 'q') {
             break;
-        else if(key == ' ')
+        } else if(key == ' ') {
             key = cv::waitKey(0);
-            if(key == 'q')
+            if(key == 'q') {
                 break;
+            }
+        }
     }
 
     delete [] decompressionBuffer;
